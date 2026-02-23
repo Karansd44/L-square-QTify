@@ -1,4 +1,7 @@
-.App {
-  min-height: 100vh;
-  background-color: #121212;
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+  padding: 0px 31px;
 }

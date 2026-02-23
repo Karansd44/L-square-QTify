@@ -5,6 +5,7 @@
   --color-primary: #34C94B;
   --color-black: #121212;
   --color-white: #FFFFFF;
+  --font-poppins: 'Poppins', sans-serif;
 }
 
 * {

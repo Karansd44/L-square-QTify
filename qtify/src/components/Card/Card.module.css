@@ -1,0 +1,60 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 159px;
+  height: 232px;
+}
+
+.card {
+  width: 159px;
+  height: 205px;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.banner {
+  height: 35px;
+  background-color: var(--color-white);
+  display: flex;
+  align-items: center;
+  padding: 0px 8px;
+}
+
+.chip {
+  background-color: var(--color-black) !important;
+  color: var(--color-white) !important;
+  font-family: var(--font-poppins) !important;
+  font-size: 10px !important;
+  height: 23px !important;
+}
+
+.pill {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+}
+
+.titleWrapper {
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.titleWrapper p {
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
