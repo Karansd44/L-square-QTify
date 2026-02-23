@@ -5,23 +5,12 @@ import Hero from './components/Hero/Hero';
 import Section from "./components/Section/Section";
 import { fetchTopAlbums, fetchNewAlbums, fetchSongs, fetchFilters } from "./api/api";
 
-const mockAlbumImage = "https://m.media-amazon.com/images/I/91t6+Qy3OFL._SL1500_.jpg";
-
-const generateMockData = (count, titlePrefix) => {
-  return Array.from({ length: count }, (_, i) => ({
-    id: `${titlePrefix}-${i}`,
-    title: `${titlePrefix} ${i + 1}`,
-    image: mockAlbumImage,
-    follows: 100,
-    likes: 100,
-    songs: Array(10).fill({}),
-  }));
-};
+const mockAlbumImage = "https://is1-ssl.mzstatic.com/image/thumb/Music118/v4/05/9a/5c/059a5c6b-9e4a-5b1a-8c1a-8ced94819dfb/6805132.jpg/600x600bf.jpg";
 
 function App() {
-  const [topAlbums, setTopAlbums] = useState(generateMockData(15, "Top Album"));
-  const [newAlbums, setNewAlbums] = useState(generateMockData(15, "New Album"));
-  const [songsData, setSongsData] = useState(generateMockData(15, "Song"));
+  const [topAlbums, setTopAlbums] = useState([]);
+  const [newAlbums, setNewAlbums] = useState([]);
+  const [songsData, setSongsData] = useState([]);
   const [filteredSongs, setFilteredSongs] = useState([]);
   const [filters, setFilters] = useState([{ key: "all", label: "All" }]);
   const [selectedFilterIndex, setSelectedFilterIndex] = useState(0);
@@ -35,6 +24,15 @@ function App() {
           image: album.image || mockAlbumImage,
         }));
         setTopAlbums(processedData);
+      } else {
+        // Fallback to internal mocks ONLY if API fails and we have nothing
+        setTopAlbums(Array.from({ length: 15 }, (_, i) => ({
+          id: `top-${i}`,
+          title: `Top Album ${i + 1}`,
+          image: mockAlbumImage,
+          follows: 100,
+          songs: Array(10).fill({}),
+        })));
       }
     } catch (e) {
       console.error("Error fetching top albums:", e);
@@ -48,6 +46,14 @@ function App() {
           image: album.image || mockAlbumImage,
         }));
         setNewAlbums(processedData);
+      } else {
+        setNewAlbums(Array.from({ length: 15 }, (_, i) => ({
+          id: `new-${i}`,
+          title: `New Album ${i + 1}`,
+          image: mockAlbumImage,
+          follows: 100,
+          songs: Array(10).fill({}),
+        })));
       }
     } catch (e) {
       console.error("Error fetching new albums:", e);
@@ -62,6 +68,16 @@ function App() {
         }));
         setSongsData(processedData);
         setFilteredSongs(processedData);
+      } else {
+        const mockSongs = Array.from({ length: 15 }, (_, i) => ({
+          id: `song-${i}`,
+          title: `Song ${i + 1}`,
+          image: mockAlbumImage,
+          likes: 100,
+          genre: { key: 'all' }
+        }));
+        setSongsData(mockSongs);
+        setFilteredSongs(mockSongs);
       }
     } catch (e) {
       console.error("Error fetching songs:", e);

@@ -10,4 +10,12 @@
 .icon {
     color: var(--color-primary);
     font-size: 32px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }

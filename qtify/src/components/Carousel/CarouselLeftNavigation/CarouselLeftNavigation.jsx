@@ -18,12 +18,13 @@ function CarouselLeftNavigation() {
             styles.leftNavigation
         }>
             {
-            !isBeginning && <div onClick={
+            !isBeginning && <button onClick={
                     () => swiper.slidePrev()
                 }
                 className={
                     styles.icon
-            }><ArrowBackIosIcon/></div>
+                }
+                aria-label="Previous slide"><ArrowBackIosIcon/></button>
         } </div>
     );
 }

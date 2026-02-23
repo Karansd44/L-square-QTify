@@ -18,12 +18,13 @@ function CarouselRightNavigation() {
             styles.rightNavigation
         }>
             {
-            !isEnd && <div onClick={
+            !isEnd && <button onClick={
                     () => swiper.slideNext()
                 }
                 className={
                     styles.icon
-            }><ArrowForwardIosIcon/></div>
+                }
+                aria-label="Next slide"><ArrowForwardIosIcon/></button>
         } </div>
     );
 }

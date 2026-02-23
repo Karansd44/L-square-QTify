@@ -36,7 +36,7 @@ function Section({
                         }
                         onClick={handleToggle}>
                         {
-                        carouselToggle ? "Show all" : "Collapse"
+                        carouselToggle ? "Show All" : "Collapse"
                     } </h4>
                 )
             } </div>
