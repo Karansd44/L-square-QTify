@@ -1,0 +1,11 @@
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.logoIcon {
+  width: 67px;
+  height: auto;
+}
