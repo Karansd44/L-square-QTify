@@ -9,4 +9,5 @@
 
 .icon {
     color: var(--color-primary);
+    font-size: 32px;
 }

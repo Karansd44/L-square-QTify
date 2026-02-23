@@ -19,7 +19,7 @@ function Section({
         setCarouselToggle(!carouselToggle);
     };
 
-    const hasNoData = !data || data.length === 0;
+    const isDataAvailable = data && data.length > 0;
 
     return (
         <div className={
@@ -36,20 +36,29 @@ function Section({
                         }
                         onClick={handleToggle}>
                         {
-                        carouselToggle ? "Show All" : "Collapse"
+                        carouselToggle ? "Show all" : "Collapse"
                     } </h4>
                 )
             } </div>
             {
-            type === "song" && (
+            type === "song" && filters && (
                 <Filters filters={filters}
                     selectedFilterIndex={selectedFilterIndex}
                     setSelectedFilterIndex={setSelectedFilterIndex}/>
             )
         }
             {
-            hasNoData ? (
-                <CircularProgress color="success"/>
+            ! isDataAvailable ? (
+                <div style={
+                    {
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '232px'
+                    }
+                }>
+                    <CircularProgress color="success"/>
+                </div>
             ) : (
                 <div className={
                     styles.cardsWrapper
@@ -58,7 +67,7 @@ function Section({
                     carouselToggle ? (
                         <Carousel data={data}
                             renderComponent={
-                                (data) => <Card data={data}
+                                (item) => <Card data={item}
                                     type={type}/>
                             }/>
                     ) : (

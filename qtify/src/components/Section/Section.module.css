@@ -6,18 +6,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px; /* 30px title + 18px margin = 48px from top to cards */
 }
 
 .header h3 {
   color: var(--color-white);
   font-family: var(--font-poppins);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
 }
 
 .toggleText {
   color: var(--color-primary);
   cursor: pointer;
   font-family: var(--font-poppins);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
 }
 
 .cardsWrapper {

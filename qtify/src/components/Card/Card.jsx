@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Card.module.css";
 import {Chip, Tooltip} from "@mui/material";
+import HeroImage from "../../assets/hero_headphones.svg";
 
 function Card({data, type}) {
     const getCard = (type) => {
@@ -8,7 +9,7 @@ function Card({data, type}) {
             case "album":
                 {
                     const {image, title, follows, songs} = data;
-                    const songCount = (songs && songs.length) || 0;
+                    const songCount = songs ? songs.length : 0;
                     return (
                         <Tooltip title={
                                 `${songCount} songs`
@@ -22,7 +23,13 @@ function Card({data, type}) {
                                     styles.card
                                 }>
                                     <img src={image}
-                                        alt="album"/>
+                                        alt="album"
+                                        onError={
+                                            (e) => {
+                                                e.target.src = HeroImage;
+                                                e.target.onerror = null; // Prevent infinite loop
+                                            }
+                                        }/>
                                     <div className={
                                         styles.banner
                                     }>
@@ -56,7 +63,13 @@ function Card({data, type}) {
                                 styles.card
                             }>
                                 <img src={image}
-                                    alt="song"/>
+                                    alt="song"
+                                    onError={
+                                        (e) => {
+                                            e.target.src = HeroImage;
+                                            e.target.onerror = null; // Prevent infinite loop
+                                        }
+                                    }/>
                                 <div className={
                                     styles.banner
                                 }>
