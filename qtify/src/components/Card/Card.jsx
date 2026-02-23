@@ -8,11 +8,10 @@ function Card({data, type}) {
             case "album":
                 {
                     const {image, title, follows, songs} = data;
+                    const songCount = (songs && songs.length) || 0;
                     return (
                         <Tooltip title={
-                                `${
-                                    songs ?. length
-                                } songs`
+                                `${songCount} songs`
                             }
                             placement="top"
                             arrow>

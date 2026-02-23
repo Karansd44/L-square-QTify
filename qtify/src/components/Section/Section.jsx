@@ -19,6 +19,8 @@ function Section({
         setCarouselToggle(!carouselToggle);
     };
 
+    const hasNoData = !data || data.length === 0;
+
     return (
         <div className={
             styles.sectionWrapper
@@ -46,7 +48,7 @@ function Section({
             )
         }
             {
-            !data ?. length ? (
+            hasNoData ? (
                 <CircularProgress color="success"/>
             ) : (
                 <div className={
